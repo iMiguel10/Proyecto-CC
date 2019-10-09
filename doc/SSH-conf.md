@@ -18,17 +18,23 @@ Una vez que tenemos las claves, vamos a:
 
 Ahora le damos un nombre a la clave y pegamos el contenido del archivo que contiene nuestra clave pública *~/.ssh/id_rsa.pub*, y añadimos la clave.
 
-![SSH KEYS]()
+![SSH KEYS](https://github.com/iMiguel10/Proyecto-CC/blob/master/img/ssh-keys.PNG)
 
 ### 3. Cambiar el URL del repositorio
 
 Cambiamos el url del repositorio en caso de que los cambios los suba a través de http. Esto lo podemos comprobar con `git remote -v`.
-En mi caso yo cambié _https://github.com/iMiguel10/Proyecto-CC.git_ por _git@github.com:iMiguel10/Proyecto-CC.git_ con `git remote set-url origin git@github.com:iMiguel10/Proyecto-CC.git`.
+
+En mi caso yo cambié:  
+_https://github.com/iMiguel10/Proyecto-CC.git_  
+por  
+_git@github.com:iMiguel10/Proyecto-CC.git_  
+con  
+`git remote set-url origin git@github.com:iMiguel10/Proyecto-CC.git`.
 
 ### 4. Probar
 ---
 Probamos que todo funcione correctamente.
 
-![SSH PRUEBA]()
+![SSH PRUEBA](https://github.com/iMiguel10/Proyecto-CC/blob/master/img/ssh-prueba.PNG)
 
 **NOTA:** Se ha seguido el siguiente tutorial [Autenticar con clave pública](https://www.linuxito.com/programacion/1041-como-autenticar-con-clave-publica-en-github).
