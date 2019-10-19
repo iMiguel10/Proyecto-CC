@@ -11,7 +11,9 @@ El proyecto está pensado para incorporarse en una aplicación de eventos en los
 
 ## Arquitectura
 
-Se pretende tener una arquitectura basada en microservicos, de manera que, cada microservicio pueda ser desarrolado y desplegado de forma independiente y con lenguajes distintos. De esta manera nos quedarían 3 microservicos: **catálogo de entradas, generador de entradas y envío de mensajes**.
+Se pretende tener una arquitectura mixta, basada en microservicos y en eventos, de manera que, cada microservicio pueda ser desarrolado y desplegado de forma independiente y con lenguajes distintos y se comuniquen a través de AMQP y si es necesario a través de HTTP (con una API REST). De esta manera nos quedarían 3 microservicos principales: **catálogo de entradas, generador de entradas y envío de mensajes**.
+
+![Diagrama ARQ](https://github.com/iMiguel10/Proyecto-CC/blob/master/img/arquitectura-cc.png)
 
 [**Documentación Arquitectura**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/arquitectura.md)
 
