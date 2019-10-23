@@ -7,7 +7,7 @@ La arquitectura será mixta, estará basada en microservicos y en paso de mensaj
 - **Generador de entradas:** Será el encargado de generar una entrada en PDF y almacenarlo.
 - **Envío de mensajes (al cliente):** Será el encargado de enviar un mensaje al cliente notificándolo con información o enviando la entrada comprada.
 
-- **Posibles servicios adicionales:** Existe la posibilidad de que se necesite un servicio de configuración remoto (como etcd).
+- **Servicios adicionales:** Es necesario un servicio de configuración remoto (como etcd) y otro de logs.
 
 Para la comunicación entre los microservicios se hará uso de sistemas de mensajería haciendo uso del protocolo AMQP, además de que los microservicios, en caso de que fuese necesario cuenten con una API REST. Será necesario AMQP ya que los procesos de generación de PDF y envío de mensajes al cliente tardarán un tiempo indeterminado y por otra parte los demás no necesitan una respuesta.
 
