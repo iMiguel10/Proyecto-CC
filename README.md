@@ -27,4 +27,4 @@ Se pretende tener una arquitectura mixta, basada en microservicos y en eventos, 
 * **Test:** Para el desarrollo basado en test se implementarán distintas pruebas para todos los microservicios usando [PyTest](https://docs.pytest.org/en/latest/). Se tiene pensado utilizar Travis CI, ya que nos permite pasar los test y además incorporarlo con GitHub.
 * **Servicios:** Se necesitan servicios para la configuración distribuida, para ello se hará uso de [etcd](https://etcd.io/), y para el log, se usará logging, que nos permite sacar log de nuestros microservicios y se utilizará syslog para centralizarlos todos.
 
-[**Documentación Herramientas**]((https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/herramientas.md)
+[**Documentación Herramientas**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/herramientas.md)
