@@ -69,3 +69,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Archivos de prueba
+*prueba*
+*.pdf
+qr.png
