@@ -40,8 +40,8 @@ class Documento:
             c.drawString(50, 670, "Usuario: " + self.contenido["propietario"])
 
             # Ponemos el QR para la entrada
-            #qr = self.generaQR()
-            #c.drawImage(qr, 50, 350, 300, 300)
+            qr = self.generaQR()
+            c.drawImage(qr, 50, 350, 300, 300)
 
             # Ponemos el precio de la entrada
             c.setFont("Helvetica-Bold", 16)
@@ -63,7 +63,7 @@ class Documento:
             c.save()
 
             # Eliminamos qr generado
-            #remove(qr)
+            remove(qr)
 
             logging.info('PDF: '+doc+' generado')
             return True
@@ -72,3 +72,37 @@ class Documento:
 
             logging.error('Error en la creación del PDF:'+str(e))
             return False
+
+    def generaQR(self):
+
+        try:
+
+            qr = "qr.png"
+            text = json.dumps(self.contenido, indent=4)
+
+            img = qrcode.make(text)
+
+            f = open(qr, "wb")
+            img.save(f)
+            f.close()
+
+            logging.info('QR: '+qr+' generado')
+            return qr
+
+        except Exception as e:
+
+            logging.error('Error en la creación del QR:'+str(e))
+            return False
+
+
+
+datos = {
+"id": 12232323,
+"evento": "Concierto Pablo Alborán",
+"precio": 49.99,
+"propietario": "imiguel10@correo.ugr.es",
+"descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit, augue enim nulla sodales vulputate ad, lacus himenaeos nostra ante cubilia ut. Penatibus arcu semper ultricies viverra platea netus cubilia parturient per turpis class sollicitudin habitasse, sem primis tincidunt libero duis eros erat nostra luctus dis sociosqu ut senectus, quis dui purus lectus nunc mattis ornare hac ad id convallis enim. Praesent accumsan luctus pharetra congue nostra vitae aenean nascetur, sem curabitur quam tristique massa inceptos.",
+}
+
+documento = Documento(datos)
+documento.generarPDF()
