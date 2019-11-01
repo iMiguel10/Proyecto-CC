@@ -13,7 +13,7 @@ def documento():
         "id": 12232323,
         "evento": "Concierto Pablo Alborán",
         "precio": 49.99,
-        "propietario": "imiguel10@correo.ugr.es",
+        "propietario": "probando@correo.es",
         "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit, augue enim nulla sodales vulputate ad, lacus himenaeos nostra ante cubilia ut. Penatibus arcu semper ultricies viverra platea netus cubilia parturient per turpis class sollicitudin habitasse, sem primis tincidunt libero duis eros erat nostra luctus dis sociosqu ut senectus, quis dui purus lectus nunc mattis ornare hac ad id convallis enim. Praesent accumsan luctus pharetra congue nostra vitae aenean nascetur, sem curabitur quam tristique massa inceptos."
     }
     return Documento(datos)
