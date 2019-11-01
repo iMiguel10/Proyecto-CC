@@ -59,7 +59,7 @@ class Documento:
 
             # Ponemos mensaje de agradecimiento
             c.setFont("Helvetica-Bold", 16)
-            c.drawString(50, 50, "GRACIAS POR SU COMPRA") 
+            c.drawString(50, 50, "GRACIAS POR SU COMPRA")
 
             # Guardamos el documento
             c.showPage()
@@ -69,7 +69,7 @@ class Documento:
             remove(qr)
 
             logging.info('PDF: '+doc+' generado')
-            return True
+            return doc
 
         except Exception as e:
 
