@@ -10,6 +10,8 @@ import json
 from os import remove
 import logging
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(levelname)s :: %(message)s')
+
 
 class Documento:
 
@@ -32,7 +34,7 @@ class Documento:
             c.drawString(50, 750, "Fecha: "+time.strftime("%d/%m/%y"))
 
             # Creamos un título para la entrada
-            c.setFont("Helvetica", 20)
+            c.setFont("Helvetica-Bold", 20)
             c.drawString(50, 700, "Entrada: "+self.contenido["evento"])
 
             # Ponemos el nombre identificador del usuario
@@ -45,18 +47,19 @@ class Documento:
 
             # Ponemos el precio de la entrada
             c.setFont("Helvetica-Bold", 16)
-            c.drawString(50, 200, "Precio: " + str(self.contenido["precio"])+" €")
+            c.drawString(50, 250, "Precio: " + str(self.contenido["precio"])+" €")
 
             # Ponemos una descripción
             c.setFont("Helvetica", 12)
             lineas = textwrap.wrap(self.contenido["descripcion"],80)
-            h = 180
+            h = 230
             for l in lineas:
                 c.drawString(50,h , l) #100
                 h-=15
 
             # Ponemos mensaje de agradecimiento
-            c.drawString(50, 50, "GRACIAS POR SU COMPRA") #50
+            c.setFont("Helvetica-Bold", 16)
+            c.drawString(50, 50, "GRACIAS POR SU COMPRA") 
 
             # Guardamos el documento
             c.showPage()
