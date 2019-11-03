@@ -1,4 +1,4 @@
-[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)   
+[![Build Status](https://travis-ci.com/iMiguel10/Proyecto-CC.svg?branch=master)](https://travis-ci.com/iMiguel10/Proyecto-CC) [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)   
 
 # Proyecto-CC (Gestión de entradas)
 
@@ -21,10 +21,20 @@ Se pretende tener una arquitectura mixta, basada en microservicos y en eventos, 
 
 ## Herramientas
 
-* **Lenguajes:** Para el desarrollo de los microservicios se usará Python 3. Por otro lado se usará `virtualenv` como entorno virtual para el desarollo aislado de los microservicios.
+* **Lenguajes:** Para el desarrollo de los microservicios se usará Python 3. independientemente de las herramientas usadas se usará `virtualenv` como entorno virtual para el desarollo local de los microservicios.
 * **Almacenamiento:** Para el almacenamiento de los datos en el microservico de catálogo de entradas se usuará una base de datos SQL, en concreto [ElephantSQL](https://www.elephantsql.com/).
 * **Comunicación:** Los microservicios se comunicarán mediante envío de mensajes (con RabbitMQ).
 * **Test:** Para el desarrollo basado en test se implementarán distintas pruebas para todos los microservicios usando [PyTest](https://docs.pytest.org/en/latest/). Se tiene pensado utilizar Travis CI, ya que nos permite pasar los test y además incorporarlo con GitHub.
 * **Servicios:** Se necesitan servicios para la configuración distribuida, para ello se hará uso de [etcd](https://etcd.io/), y para el log, se usará logging, que nos permite sacar log de nuestros microservicios y se utilizará syslog para centralizarlos todos.
 
 [**Documentación Herramientas**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/herramientas.md)
+
+## Integración continua  (Travis-CI)
+
+Se van a testear todos los [**microsevicios**](https://github.com/iMiguel10/Proyecto-CC/tree/master/src) (**Catálogo de entradas, generador PDF, envio de correo**), así como sus entidades.
+
+Por otro lado para **instalarla y testearla** es necesario instalar los [*requirements.txt*](https://github.com/iMiguel10/Proyecto-CC/blob/master/requirements.txt) con *pip* y hacer uso de *PyTest* para ejecutar los test. Todo esto quedará automatizado con la herramienta de construción **Invoke**, pudiendo hacer `invoke build` o `invoke test`.
+
+buildtool: tasks.py
+
+[**Documentación Integración Contínua**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/integracion-continua.md)
