@@ -13,7 +13,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(levelname)s :: %(message)s')
 
 
-class Documento:
+class GeneradorPDF:
 
     def __init__(self, datos):
         self.contenido = datos
