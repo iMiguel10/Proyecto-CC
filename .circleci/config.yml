@@ -6,13 +6,13 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Instalando dependencias
-        command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          pip install -r requirements.txt
+          name: Instalando dependencias
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
       - run:
-          name: Ejecutando tests
+          name: Ejecutando test
           command: |
             . venv/bin/activate
             invoke test
