@@ -11,3 +11,4 @@ install:
 # Comando para ejecutar los test
 script:
   - invoke test
+  - invoke codecov

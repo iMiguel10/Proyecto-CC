@@ -15,5 +15,11 @@ def build(ctx):
 def test(ctx):
     with ctx.cd('test/'):
         print("Testeando...")
-        ctx.run("pytest")
+        ctx.run("pytest --cov=./")
         print("Testeado!")
+
+# Tarea para ejecutar codecov
+@task
+def codecov(ctx):
+    with ctx.cd('test/'):
+        ctx.run("codecov")
