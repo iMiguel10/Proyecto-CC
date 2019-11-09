@@ -10,10 +10,10 @@ from generadorentradasPDF import GeneradorPDF
 def generador():
     '''Devuelve una instancia del GeneradorPDF con el contenido correcto'''
     datos = {
-        "id": 12232323,
-        "evento": "Concierto Pablo Alborán",
+        "id": 'test-entrada',
+        "evento": "TEST",
         "precio": 49.99,
-        "propietario": "probando@correo.es",
+        "propietario": "test@test.es",
         "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit, augue enim nulla sodales vulputate ad, lacus himenaeos nostra ante cubilia ut. Penatibus arcu semper ultricies viverra platea netus cubilia parturient per turpis class sollicitudin habitasse, sem primis tincidunt libero duis eros erat nostra luctus dis sociosqu ut senectus, quis dui purus lectus nunc mattis ornare hac ad id convallis enim. Praesent accumsan luctus pharetra congue nostra vitae aenean nascetur, sem curabitur quam tristique massa inceptos."
     }
     return GeneradorPDF(datos)
