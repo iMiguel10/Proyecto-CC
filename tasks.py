@@ -18,7 +18,7 @@ def test(ctx):
         ctx.run("pytest --cov=./")
         print("Testeado!")
 
-# Tarea para ejecutar codecov
+# Tarea para codecov
 @task
 def codecov(ctx):
     with ctx.cd('test/'):
