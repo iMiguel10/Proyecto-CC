@@ -16,3 +16,4 @@ jobs:
           command: |
             . venv/bin/activate
             invoke test
+            
