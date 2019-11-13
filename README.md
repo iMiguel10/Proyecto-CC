@@ -45,6 +45,11 @@ Por otro lado para **instalarla y testearla** es necesario instalar los [*requir
 
 Por último también se han añadido test de cobertura que podemos ver tras hacer `invoke test` y `coverage report -m`. O desde [**codecov**](https://codecov.io/gh/iMiguel10/Proyecto-CC).
 
+Todas estas tareas quedan recogidas en el [tasks.py](https://github.com/iMiguel10/Proyecto-CC/blob/master/tasks.py). Este archivo es el que usa la herramienta de construcción **Invoke**, en el se definen todas las tareas de manera que queden automatizadas. Por ello en nuestro caso tenemos 3 tareas:
++ **build:** Es la tarea usada para la instalación de las dependecias.
++ **test:** Es la tarea usada para ejecutar los test.
++ **codecov:** Es la tarea que se usa para enviar los resultados de test de cobertura a codecov.
+
 buildtool: tasks.py
 
 [**Documentación Integración Continua**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/integracion-continua.md)
