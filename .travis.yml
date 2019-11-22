@@ -6,7 +6,7 @@ python:
 
 # Comando para instalar dependencias
 install:
-  - sudo apt install python3-invoke
+  - sudo apt-get install python-invoke
   - invoke build
   #- pip install -r requirements.txt
 
