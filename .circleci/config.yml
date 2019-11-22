@@ -10,10 +10,10 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -r requirements.txt
+            pip pip install invoke
+            invoke build
       - run:
           name: Ejecutando test
           command: |
             . venv/bin/activate
             invoke test
-            
