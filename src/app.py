@@ -93,17 +93,17 @@ def comprarEntrada(n):
 	codigo = catalogo.comprarEntrada(p,id)
 
 	# PROBANDO
-	datos = catalogo.getEntradaById(n)
-	documento = GeneradorPDF(datos['entradas'][0])
-	documento.generarPDF()
+	if (codigo == 201):
+		datos = catalogo.getEntradaById(n)
+		documento = GeneradorPDF(datos['entradas'][0])
+		documento.generarPDF()
 
-	destinatarios = ['m1gu3l1ll0@gmail.com']
-	sender = Sender(destinatarios)
+		destinatarios = ['m1gu3l1ll0@gmail.com']
+		sender = Sender(destinatarios)
 
-	sender.crearMensaje()
-	sender.adjuntar(str(datos['entradas'][0]['id'])+'.pdf')
-	sender.enviar()
-
+		sender.crearMensaje()
+		sender.adjuntar(str(datos['entradas'][0]['id'])+'.pdf')
+		sender.enviar()
 
 	return '', codigo
 
