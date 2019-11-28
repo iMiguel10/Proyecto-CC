@@ -1,9 +1,9 @@
 build:
   docker:
     web: Dockerfile
-  config:
-    MAIL: ENV['MAIL']
-    MAIL_PASS: ENV['MAIL_PASS']
-    BD: ENV['BD']
 run:
+  config:
+    MAIL: {$MAIL}
+    MAIL_PASS: {$MAIL_PASS}
+    BD: {$BD}
   web: gunicorn app:app
