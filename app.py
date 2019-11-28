@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
+sys.path.append('src/')
 
 from flask import Flask, jsonify, request
 from catalogo import Catalogo
