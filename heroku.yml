@@ -2,8 +2,8 @@ build:
   docker:
     web: Dockerfile
   config:
-    MAIL: ${MAIL}
-    MAIL_PASS: ${MAIL_PASS}
-    BD: ${BD}
+    MAIL: $MAIL
+    MAIL_PASS: $MAIL_PASS
+    BD: $BD
 run:
   web: gunicorn app:app --log-file -
