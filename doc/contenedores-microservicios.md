@@ -161,9 +161,17 @@ Para ejecutar el contenedor realizamos lo siguiente:
 * _-p_: nos permite especificar el mapeo de puertos entre el contenedor y la máquina anfitriona.
 * _app_: es el nombre que le pusimos anteriormente al contenedor.
 
+Por otro lado los contenedores se han publicado en:
+~~~
+Docker Hub: https://hub.docker.com/r/imiguel10/catalogo-eventos/dockerfile
+
+GitHub: https://github.com/iMiguel10/Proyecto-CC/packages/65465?version=latest
+~~~
+
 ### Bibiografía:
 
 - https://docs.docker.com/engine/reference/builder/
 - https://docs.docker.com/engine/reference/commandline/run/
 - https://hub.docker.com/_/python
 - https://hub.docker.com/_/ubuntu
+- https://help.github.com/es/github/managing-packages-with-github-packages/configuring-docker-for-use-with-github-packages
