@@ -9,6 +9,6 @@ RUN invoke install
 
 COPY src/ src/
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["invoke", "start"]
