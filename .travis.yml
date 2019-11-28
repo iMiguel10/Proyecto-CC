@@ -1,6 +1,7 @@
 
 language: python
 
+# Versiones del lenguaje
 python:
   - "3.6.8"
   - "3.7"
