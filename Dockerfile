@@ -9,6 +9,14 @@ RUN invoke install
 
 COPY src/ src/
 
+ARG MAIL
+ARG MAIL_PASS
+ARG BD
+
+ENV MAIL ${MAIL}
+ENV MAIL_PASS ${MAIL_PASS}
+ENV BD ${BD}
+
 EXPOSE 8080
 
 CMD ["invoke", "start"]
