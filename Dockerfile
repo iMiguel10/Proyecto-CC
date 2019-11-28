@@ -17,6 +17,6 @@ ENV MAIL ${MAIL}
 ENV MAIL_PASS ${MAIL_PASS}
 ENV BD ${BD}
 
-EXPOSE 8080
+EXPOSE 80
 
-CMD ["invoke", "start"]
+CMD ["gunicorn","-b","0.0.0.0:80","app:app"]
