@@ -1,11 +1,7 @@
-FROM ubuntu:latest
+FROM python:3.6-slim
 
 LABEL maintainer="imiguel10@correo.ugr.es"
 
-RUN apt update
-RUN apt install python3 -y
-RUN apt install python3-pip -y
-RUN ln -s /usr/bin/pip3 /usr/bin/pip
 COPY requirements.txt ./
 COPY tasks.py ./
 RUN pip install invoke
