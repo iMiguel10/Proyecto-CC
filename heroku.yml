@@ -6,4 +6,4 @@ build:
     MAIL_PASS: {$MAIL_PASS}
     BD: {$BD}
 run:
-  web: gunicorn src/app:app
+  web: gunicorn app:app
