@@ -4,7 +4,6 @@ language: python
 python:
   - "3.6.8"
   - "3.7"
-  - "3.8"
 
 # Comando para instalar dependencias
 install:
