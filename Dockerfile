@@ -9,14 +9,6 @@ RUN invoke install
 
 COPY src/ src/
 
-ARG MAIL
-ARG MAIL_PASS
-ARG BD
+EXPOSE 8080
 
-ENV MAIL ${MAIL}
-ENV MAIL_PASS ${MAIL_PASS}
-ENV BD ${BD}
-
-EXPOSE 80
-
-CMD ["gunicorn","-b","0.0.0.0:80","app:app"]
+CMD ["invoke", "start"]
