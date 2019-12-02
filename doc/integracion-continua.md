@@ -113,8 +113,8 @@ En este archivo de configuración, en este caso de Circle podemos ver lo siguiet
   + **run:** Por último volvemos a activar el entorno y ejecutamos los test con invoke.
 
 #### Ejemplos:
-![Ejemplo Travis](https://github.com/iMiguel10/Proyecto-CC/blob/master/img/integracion-continua.png)   
-![Ejemplo Circle](https://github.com/iMiguel10/Proyecto-CC/blob/master/img/integracion-continua2.png)
+![Ejemplo Travis](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/integracion-continua.png)   
+![Ejemplo Circle](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/integracion-continua2.png)
 
 ### Test
 Los [test](https://github.com/iMiguel10/Proyecto-CC/tree/master/test) que se han escrito son para comprobar la funcionalidad de los [microservicios](https://github.com/iMiguel10/Proyecto-CC/tree/master/src).

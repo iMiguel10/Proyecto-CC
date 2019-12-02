@@ -8,7 +8,7 @@ Por otro lado se usará `virtualenv` como entorno virtual para el desarollo aisl
 
 * **Almacenamiento:** Para el almacenamiento de los datos en el microservico de catálogo de entradas se usuará una base de datos SQL, en concreto [ElephantSQL](https://www.elephantsql.com/). Se va a hacer uso de una base de datos SQL porque tenemos el siguiente modelo de datos para las entradas.
 
-![Modelo de datos](https://github.com/iMiguel10/Proyecto-CC/blob/master/img/datos-bd.png)
+![Modelo de datos](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/datos-bd.png)
 
 * **Comunicación:** Los microservicios se comunicarán mediante envío de mensajes (con RabbitMQ), como muestra el diagrama de arquitectura.
 

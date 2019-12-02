@@ -17,4 +17,4 @@ Para el desarrollo de cada uno de los microservicios se utilizará como lenguaje
 
 A continuación se mostrará un diagrama:
 
-![Diagrama ARQ](https://github.com/iMiguel10/Proyecto-CC/blob/master/img/arquitectura-cc.png)
+![Diagrama ARQ](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/arquitectura-cc.png)

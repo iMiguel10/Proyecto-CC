@@ -26,7 +26,7 @@ A continuación vamos a ver como hemos construido el contenedor docker que alber
 
 Se ha probado con 3 Dockerfile distintos, los tres igual de válidos, pero nos hemos quedado con el primero porque el tamaño de la imagen es mucho más pequeña y además lleva ya incorporado python, en comparación con el último de ubuntu. Los tamaños podemos verlos en la siguiente imagen, donde están los contenedores de python slim, de python en alpine y de ubuntu.
 
-![Imagenes docker](https://github.com/iMiguel10/Proyecto-CC/blob/master/img/imagenes-docker.png)
+![Imagenes docker](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/imagenes-docker.png)
 
 A continuación vamos a ver los diferentes Dockerfile creados.
 
@@ -163,7 +163,7 @@ Para ejecutar el contenedor realizamos lo siguiente:
 
 Por otro lado los contenedores se han publicado en:
 ~~~
-Docker Hub: https://hub.docker.com/r/imiguel10/catalogo-eventos/dockerfile
+Docker Hub: https://hub.docker.com/r/imiguel10/catalogo-eventos
 
 GitHub: https://github.com/iMiguel10/Proyecto-CC/packages/65465?version=latest
 ~~~
