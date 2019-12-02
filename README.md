@@ -74,7 +74,7 @@ Para esta parte de contenedores para microservicios, en primer lugar se ha cread
 También se ha desplegado o subido el contendor a distintos lugares, a Docker Hub y a GitHub(Para subirlo se ha hecho [esto](https://help.github.com/es/github/managing-packages-with-github-packages/configuring-docker-for-use-with-github-packages)). A continuación se muestran las rutas.
 
 ~~~
-Contenedor: https://hub.docker.com/r/imiguel10/catalogo-eventos/dockerfile
+Contenedor: https://hub.docker.com/r/imiguel10/catalogo-eventos
 
 GitHub: https://github.com/iMiguel10/Proyecto-CC/packages/65465?version=latest
 ~~~
