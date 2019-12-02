@@ -7,8 +7,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Publica imagen
-      uses: iMiguel10/docker-publish@master
+    - name: Publica imagen con la acción de JJ
+      uses: JJ/gpr-docker-publish@master
       with:
         IMAGE_NAME: 'catalogo-eventos'
         TAG: 'latest'
