@@ -57,7 +57,7 @@ Ahora vamos a explicar el contenido del mismo, instrucción por instrucción:
 - **RUN:** Instalamos primero Invoke.
 - **RUN:** Instalamos las dependecias del proyecto con invoke.
 - **COPY:** Copiamos la carpeta donde se encuentra nuestro programa.
-- **EXPOSE:** Nos permite especificar que puertos va a escuchar el contenedor. En nuestro caso hemos elegido el 8080.
+- **EXPOSE:** Nos permite especificar de manera informativa que puertos va a escuchar el contenedor. En nuestro caso hemos elegido el 8080.
 - **CMD:** Proporcionamos al contendor la ejecución de levantar el servicio REST por defecto.
 
 ###### Dockerfile 2 (Python3-Alpine)
@@ -104,7 +104,7 @@ Al igual que en el anterior vamos a explicar el contenido:
 - **RUN:** Instalamos primero Invoke.
 - **RUN:** Instalamos las dependecias del proyecto con invoke.
 - **COPY:** Copiamos la carpeta donde se encuentra nuestro programa.
-- **EXPOSE:** Nos permite especificar que puertos va a escuchar el contenedor. En nuestro caso hemos elegido el 8080.
+- **EXPOSE:** Nos permite especificar de manera informativa que puertos va a escuchar el contenedor. En nuestro caso hemos elegido el 8080.
 - **CMD:** Proporcionamos al contendor la ejecución de levantar el servicio REST por defecto.
 
 
@@ -143,7 +143,7 @@ Al igual que en el anterior vamos a explicar el contenido:
 - **RUN:** Instalamos primero Invoke.
 - **RUN:** Instalamos las dependecias del proyecto con invoke.
 - **COPY:** Copiamos la carpeta donde se encuentra nuestro programa.
-- **EXPOSE:** Nos permite especificar que puertos va a escuchar el contenedor. En nuestro caso hemos elegido el 8080.
+- **EXPOSE:** Nos permite especificar de manera informativa que puertos va a escuchar el contenedor. En nuestro caso hemos elegido el 8080.
 - **CMD:** Proporcionamos al contendor la ejecución de levantar el servicio REST por defecto.
 
 Una vez vistos todos los Dockerfile vamos e ver qué instrucciones se han usado para construir y ejecutar las contenedores/imagenes.  
@@ -165,7 +165,21 @@ Por otro lado los contenedores se han publicado en:
 ~~~
 Docker Hub: https://hub.docker.com/r/imiguel10/catalogo-eventos
 
-GitHub: https://github.com/iMiguel10/Proyecto-CC/packages/65465?version=latest
+GitHub: https://github.com/iMiguel10/Proyecto-CC/packages/65465
+
+Google Colud: gcr.io/proyecto-cc-260418/github.com/imiguel10/proyecto-cc@sha256:46945b6c20212c0f9a3137d697e22db5e7335bf9fc7e6d3da600a750cbd3bb31
+~~~
+
+Para la construción automática de los contenedores, en primer lugar para DockerHub se ha conectado a GitHub, por otro lado para subirlo a GRP se ha utilizado una [acción de GitHub](https://github.com/iMiguel10/Proyecto-CC/blob/master/.github/workflows/docker.yml) y por último para subirlo a Google Container Registry se ha creado un activador (a continuación se mostrará una imagen).
+
+![Activador Google](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/activador-google.png)
+
+Además se ha podido desplegar en Google Cloud, haciendo uso de [Cloud Run](https://cloud.google.com/run/?hl=es). A continuación se muestra la ruta del despligue.
+
+~~~
+
+Catalogo Eventos (Desplegado): https://proyecto-cc-augbbnavea-ew.a.run.app/
+
 ~~~
 
 ### Bibiografía:
