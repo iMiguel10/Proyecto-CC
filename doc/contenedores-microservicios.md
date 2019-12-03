@@ -170,7 +170,7 @@ GitHub: https://github.com/iMiguel10/Proyecto-CC/packages/65465
 Google Colud: gcr.io/proyecto-cc-260418/github.com/imiguel10/proyecto-cc@sha256:46945b6c20212c0f9a3137d697e22db5e7335bf9fc7e6d3da600a750cbd3bb31
 ~~~
 
-Para la construción automática de los contenedores, en primer lugar para DockerHub se ha conectado a GitHub, por otro lado para subirlo a GRP se ha utilizado una [acción de GitHub](https://github.com/iMiguel10/Proyecto-CC/blob/master/.github/workflows/docker.yml) y por último para subirlo a Google Container Registry se ha creado un activador (a continuación se mostrará una imagen).
+Para la construción automática de los contenedores, en primer lugar para DockerHub se ha conectado a GitHub, por otro lado para subirlo a GRP se ha utilizado una [acción de GitHub](https://github.com/iMiguel10/Proyecto-CC/blob/master/.github/workflows/docker.yml) y haciendo uso de [gpr-docker-publish](https://github.com/JJ/gpr-docker-publish), por último para subirlo a Google Container Registry se ha creado un activador (a continuación se mostrará una imagen).
 
 ![Activador Google](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/activador-google.png)
 
