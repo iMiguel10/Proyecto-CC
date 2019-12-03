@@ -24,7 +24,7 @@ Por supuesto, todo el desarrollo queda testeado. Estos test los podemos ver en l
 
 A continuación vamos a ver como hemos construido el contenedor docker que albergará nuestro proyecto a partir de un Dockerfile, el cual, explicaremos que opciones tiene y como funciona o que resultados se espera de cada una de ellas.
 
-Se ha probado con 3 Dockerfile distintos, los tres igual de válidos, pero nos hemos quedado con el primero porque el tamaño de la imagen es mucho más pequeña y además lleva ya incorporado python, en comparación con el último de ubuntu. Los tamaños podemos verlos en la siguiente imagen, donde están los contenedores de python slim, de python en alpine y de ubuntu.
+Se ha probado con 3 Dockerfile distintos, los tres igual de válidos, pero nos hemos quedado con el primero porque el tamaño de la imagen es mucho más pequeña, además lleva ya incorporado python y proporciona unos resultados a peticiones web mucho mejores que los demás contenedores. Los resultados y la orden utilizada para comprobar el rendimiento están en el documento de [resutados-ab](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/resultados-ab.md), y los tamaños podemos verlos en la siguiente imagen, donde están los contenedores de python slim, de python en alpine y de ubuntu.
 
 ![Imagenes docker](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/imagenes-docker.png)
 
