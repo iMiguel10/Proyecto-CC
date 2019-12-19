@@ -36,10 +36,10 @@ def test_entrada(client):
     json_data = rv2.get_json()
     id = json_data['entradas'][-1]['id']
     rv3 = client.get('/entrada/'+str(id))
-    rv5 = client.post('/entrada/comprar/'+str(id), json={"propietario": "luisito@gmail.com"})
+    rv5 = client.post('/entrada/comprar/'+str(id), json={"propietario": "luisito@gmail.coim"})
     rv6 = client.get('/entradas/propietario/luisito@gmail.com')
     # FALLO
-    rv5F2 = client.post('/entrada/comprar/'+str(id), json={"propietario": "luisito@gmail.com"})
+    rv5F2 = client.post('/entrada/comprar/'+str(id), json={"propietario": "luisito@gmail.coim"})
 
     rv4 = client.delete('/entrada/'+str(id))
 
@@ -48,7 +48,7 @@ def test_entrada(client):
     rv3F = client.delete('/entrada/-21')
     rv4F = client.get('/entrada/dds')
     rv5F1 = client.post('/entrada/comprar/'+str(id))
-    rv5F3 = client.post('/entrada/comprar/'+str(id), json={"propietario": "luisito@gmail.com"})
+    rv5F3 = client.post('/entrada/comprar/'+str(id), json={"propietario": "luisito@gmail.coim"})
 
 
     # Casos satisfactorios

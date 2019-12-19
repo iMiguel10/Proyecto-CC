@@ -90,7 +90,7 @@ class Catalogo:
         else: return 404
         session.close()
         channel = self.connection.channel()
-        datos = json.dumps(entrada.get_json())
+        datos = json.dumps(self.get_json(entrada))
         channel.basic_publish(exchange='', routing_key='genera', body=datos)
         logging.info('Enviado a la cola el mensaje con la entrada: '+id)
         connection.close()
