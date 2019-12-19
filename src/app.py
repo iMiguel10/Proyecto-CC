@@ -4,11 +4,6 @@
 from flask import Flask, jsonify, request
 from catalogo import Catalogo
 
-# PROBANDO
-from generadorentradasPDF import GeneradorPDF
-from enviarEntradas import Sender
-
-
 
 catalogo = Catalogo()
 app = Flask(__name__)
@@ -91,19 +86,6 @@ def comprarEntrada(n):
 		return '',400
 
 	codigo = catalogo.comprarEntrada(p,id)
-
-	# PROBANDO
-	if (codigo == 201):
-		datos = catalogo.getEntradaById(n)
-		documento = GeneradorPDF(datos['entradas'][0])
-		documento.generarPDF()
-
-		destinatarios = ['m1gu3l1ll0@gmail.com']
-		sender = Sender(destinatarios)
-
-		sender.crearMensaje()
-		sender.adjuntar(str(datos['entradas'][0]['id'])+'.pdf')
-		sender.enviar()
 
 	return '', codigo
 

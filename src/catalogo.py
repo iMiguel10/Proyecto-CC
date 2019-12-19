@@ -2,13 +2,17 @@
 # -*- coding: utf-8 -*-
 from base import Session, engine, Base
 from models import Entradas
-
+import pika
+import json
+import os
 
 class Catalogo:
 
     def __init__(self):
         # Generamos el esquema de la BD
         Base.metadata.create_all(engine)
+        self.parameters = pika.URLParameters(os.environ["AMQP_SERVER"])
+        self.connection = pika.BlockingConnection(self.parameters)
 
     def get_json(self,entrada):
         return {
@@ -85,6 +89,11 @@ class Catalogo:
             else: return 401
         else: return 404
         session.close()
+        channel = self.connection.channel()
+        datos = json.dumps(entrada.get_json())
+        channel.basic_publish(exchange='', routing_key='genera', body=datos)
+        logging.info('Enviado a la cola el mensaje con la entrada: '+id)
+        connection.close()
 
         return 201
 

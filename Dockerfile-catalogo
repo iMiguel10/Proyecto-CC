@@ -1,0 +1,15 @@
+FROM python:3.6-slim
+
+LABEL maintainer="imiguel10@correo.ugr.es"
+
+COPY requirements-catalogo.txt ./
+COPY tasks.py ./
+
+RUN pip install invoke
+RUN invoke install --ms catalogo
+
+COPY src/app.py src/base.py src/models.py src/catalogo.py src/
+
+EXPOSE 8080
+
+CMD ["invoke", "start", "--ms", "catalogo"]
