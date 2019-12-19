@@ -5,6 +5,8 @@ from models import Entradas
 import pika
 import json
 import os
+import logging
+
 
 class Catalogo:
 
@@ -88,12 +90,12 @@ class Catalogo:
                 session.commit()
             else: return 401
         else: return 404
-        session.close()
         channel = self.connection.channel()
         datos = json.dumps(self.get_json(entrada))
+        session.close()
         channel.basic_publish(exchange='', routing_key='genera', body=datos)
-        logging.info('Enviado a la cola el mensaje con la entrada: '+id)
-        connection.close()
+        logging.info('Enviado a la cola el mensaje con la entrada: '+str(id))
+        self.connection.close()
 
         return 201
 
