@@ -5,10 +5,13 @@ from invoke import task, run
 
 # Tarea para instalar dependencias
 @task
-def install(ctx):
-    """Instala las dependecias del proyecto"""
+def install(ctx,ms="all"):
+    """Instala las dependecias del proyecto. Para expecificar el microservicio usar --ms o -m. Opciones: all, catalogo, generador, sender"""
     print("Instalando dependencias...")
-    ctx.run("pip install -r requirements.txt")
+    if (ms == "all"):
+        ctx.run("pip install -r requirements.txt")
+    else:
+        ctx.run("pip install -r requirements-"+ms+".txt")
     print("HECHO!")
 
 # Tarea para ejecutar los tests
@@ -29,10 +32,15 @@ def codecov(ctx):
 
 # Tarea para iniciar el servicio
 @task
-def start(ctx,port=8080):
-    """Lanza el servicio web con gunicorn. Puedes especificar el puerto con -p o --port. Por defecto sera el 8080"""
+def start(ctx,port=8080,workers=4,ms="all"):
+    """Lanza el servicio web con gunicorn. Puedes especificar el puerto con -p o --port. Por defecto sera el 8080. Puedes especificar los workers con -w o --workers. Por defecto serán 4. Para expecificar el microservicio usar --ms o -m. Opciones: all, catalogo, generador, sender"""
     with ctx.cd('src/'):
-        ctx.run("gunicorn -b :"+str(port)+" app:app &")
+        if (ms == "all" or ms == "catalogo"):
+            ctx.run("gunicorn app:app -w "+str(workers)+" -b :"+str(port)+" &")
+        if (ms == "all" or ms == "generador"):
+            ctx.run("python generadorEntradas.py &")
+        if (ms == "all" or ms == "sender"):
+            ctx.run("python emailSender.py &")
 
 # Tarea para parar el servicio
 @task
@@ -42,9 +50,9 @@ def stop(ctx):
 
 # Tarea para automatizar la construción del contenedor
 @task
-def buildDocker(ctx, ruta="."):
-    """Construye la imagen docker en la ruta con la opción -r o --ruta. Por defecto la ruta es la actual."""
-    print("docker build -t catalogo-entradas "+ruta)
+def buildDocker(ctx, ruta=".", dockerfile="Dockerfile"):
+    """Construye la imagen docker en la ruta con la opción -r o --ruta. Por defecto la ruta es la actual. Utilizando el Dockerfile en el directorio actual, para especificar usar --dockerfile o -d."""
+    print("docker build -f "+dockerfile+ " -t catalogo-entradas "+ruta)
 
 # Tarea para automatizar la ejecución de la imagen
 @task
