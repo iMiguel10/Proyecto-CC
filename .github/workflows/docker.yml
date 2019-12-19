@@ -1,4 +1,4 @@
-name: Publicar imagen Docker en GitHub Package Registry 
+name: Publicar imagen Docker en GitHub Package Registry
 on: push
 jobs:
   build:
@@ -10,8 +10,26 @@ jobs:
     - name: Publica imagen con la acción de JJ
       uses: JJ/gpr-docker-publish@master
       with:
-        IMAGE_NAME: 'catalogo-eventos'
+        IMAGE_NAME: 'catalogo'
         TAG: 'latest'
-        DOCKERFILE_PATH: 'Dockerfile'
+        DOCKERFILE_PATH: 'Dockerfile-catalogo'
+      env:
+        GITHUB_TOKEN: ${{ secrets.DOCKER }}
+
+    - name: Publica imagen con la acción de JJ
+      uses: JJ/gpr-docker-publish@master
+      with:
+        IMAGE_NAME: 'generador'
+        TAG: 'latest'
+        DOCKERFILE_PATH: 'Dockerfile-generador'
+      env:
+        GITHUB_TOKEN: ${{ secrets.DOCKER }}
+
+    - name: Publica imagen con la acción de JJ
+      uses: JJ/gpr-docker-publish@master
+      with:
+        IMAGE_NAME: 'sender'
+        TAG: 'latest'
+        DOCKERFILE_PATH: 'Dockerfile-sender'
       env:
         GITHUB_TOKEN: ${{ secrets.DOCKER }}
