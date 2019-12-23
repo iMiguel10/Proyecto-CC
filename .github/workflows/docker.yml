@@ -1,4 +1,4 @@
-name: Publicar imagen Docker en GitHub Package Registry
+name: Publicar imagen Docker en GitHub Package Registry 
 on: push
 jobs:
   build:
