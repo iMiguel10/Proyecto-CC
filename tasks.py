@@ -36,7 +36,7 @@ def start(ctx,port=8080,workers=4,ms="all"):
     """Lanza el servicio web con gunicorn. Puedes especificar el puerto con -p o --port. Por defecto sera el 8080. Puedes especificar los workers con -w o --workers. Por defecto serán 4. Para expecificar el microservicio usar --ms o -m. Opciones: all, catalogo, generador, sender"""
     with ctx.cd('src/'):
         if (ms == "all" or ms == "catalogo"):
-            ctx.run("gunicorn app:app -w "+str(workers)+" -b :"+str(port)+" &")
+            ctx.run("gunicorn app:app --threads=2 --worker-class=gevent -w "+str(workers)+"  -b :"+str(port)+" &")
         if (ms == "all" or ms == "generador"):
             ctx.run("python generadorEntradas.py &")
         if (ms == "all" or ms == "sender"):
