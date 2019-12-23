@@ -32,12 +32,12 @@ class Catalogo:
 
     	# Obtenemos todas las entradas del catálogo
         entradas = session.query(Entradas).filter_by(propietario=None)
-        session.close()
+
         data = {}
         data['entradas'] = []
         for e in entradas:
             data['entradas'].append(self.get_json(e))
-
+        session.close()
         return data
 
     def getEntradaById(self,id):

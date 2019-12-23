@@ -10,7 +10,7 @@ from sqlalchemy.engine.url import make_url
 import logging
 
 bd = os.environ['BD']
-engine = create_engine(make_url(bd))
+engine = create_engine(make_url(bd),pool_size=200)
 Session = sessionmaker(bind=engine)
 
 Base = declarative_base()
