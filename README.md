@@ -11,15 +11,18 @@ Para la instalación, testeo y ejecución del proyecto, en nuestra máquina loca
 
 #### Prerrequisitos
 Es neceario tener instalado **python 3** y la herramienta de construcción **invoke**.
->>> Versión de desarrollo: Python 3.6.8   
-
+~~~
+Versión de desarrollo: Python 3.6.8   
+~~~
 Por otro lado son necesarias las siguientes **variables de entorno**:
 
-
->>> MAIL: Dirección de correo (Gmail) emisor de los mensajes.   
->>> MAIL_PASS: Contraseña de la dirección de correo emisor.  
->>> BD: URL de conexión con la base de datos.  
->>> CODECOV_TOKEN: Token para subir los datos de los test de cobertura a codecov.  
+~~~
+MAIL: Dirección de correo (Gmail) emisor de los mensajes.   
+MAIL_PASS: Contraseña de la dirección de correo emisor.  
+BD: URL de conexión con la base de datos.  
+CODECOV_TOKEN: Token para subir los datos de los test de cobertura a codecov.  
+AMQP_SERVER: URL de conexión con el servidor de colas AMQP.
+~~~
 
 #### Instalación
 Para la instalación del proyecto es necesario:  
@@ -34,7 +37,7 @@ git clone https://github.com/iMiguel10/Proyecto-CC.git
 **Paso 2:** Instalar dependecias.  
 ~~~
 
-invoke install
+invoke install [-m/--ms <microservicio>]
 
 ~~~
 
@@ -77,7 +80,7 @@ Para el despliegue de los microservicios implementados es necesario volver a usa
 
 ~~~
 
-invoke start [-p/--port <puerto>]
+invoke start [-p/--port <puerto>] [-m/--ms <microservicio>] [-w/--workers <nº>]
 
 ~~~
 
@@ -103,7 +106,7 @@ Además se ha podido desplegar en Google Cloud, haciendo uso de [Cloud Run](http
 
 ~~~
 
-Catalogo Eventos (Desplegado): https://proyecto-cc-augbbnavea-ew.a.run.app/
+Catalogo Eventos (Desplegado): https://catalogo-augbbnavea-ew.a.run.app
 
 ~~~
 
@@ -112,15 +115,25 @@ Catalogo Eventos (Desplegado): https://proyecto-cc-augbbnavea-ew.a.run.app/
 
 ~~~
 Contenedor: https://hub.docker.com/r/imiguel10/catalogo-eventos
-
-GitHub: https://github.com/iMiguel10/Proyecto-CC/packages/65465
-
-Google Colud: gcr.io/proyecto-cc-260418/github.com/imiguel10/proyecto-cc@sha256:46945b6c20212c0f9a3137d697e22db5e7335bf9fc7e6d3da600a750cbd3bb31
 ~~~
 
-- **Google:** `docker pull gcr.io/proyecto-cc-260418/github.com/imiguel10/proyecto-cc:latest`
-- **GitHub:** `docker pull docker.pkg.github.com/imiguel10/proyecto-cc/catalogo-eventos:56beafc78aa8`
-- **DockerHub:** `docker pull imiguel10/catalogo-eventos`
+
+- **Google:** `docker pull gcr.io/proyecto-cc-260418/github.com/imiguel10/proyecto-cc:catalogo-latest` --> MS: Catálogo
+- **Google:** `docker pull gcr.io/proyecto-cc-260418/github.com/imiguel10/proyecto-cc:generador-latest` --> MS: Generador PDF
+- **Google:** `docker pull gcr.io/proyecto-cc-260418/github.com/imiguel10/proyecto-cc:sender-latest` --> MS: Sender de correo
+- **GitHub:** `docker pull docker.pkg.github.com/imiguel10/proyecto-cc/catalogo:latest` --> MS: Catálogo
+- **GitHub:** `docker pull docker.pkg.github.com/imiguel10/proyecto-cc/generador:latest` --> MS: Generador PDF
+- **GitHub:** `docker pull docker.pkg.github.com/imiguel10/proyecto-cc/sender:65e7c1795c0d` --> MS: Sender de correo
+- **DockerHub:** `docker pull imiguel10/catalogo-eventos:latest` --> MS: Catálogo
+- **DockerHub:** `docker pull imiguel10/catalogo-eventos:latest-generador` --> MS: Generador PDF
+- **DockerHub:** `docker pull imiguel10/catalogo-eventos:latest-sender` --> MS: Sender de correo
+
+#### Medición de prestaciones
+
+Para la medición de las prestaciones se ha usado Taurus, con el fichero de configuración **quick_test.yml**. Haciendo uso de la siguiente orden: `bzt quick_test.yml -report`.
+~~~
+Prestaciones: quick_test.yml
+~~~
 
 #### Autores
 
@@ -138,3 +151,4 @@ Este proyecto esta bajo la licencia LGPL v3 - Ver [LICENSE](https://github.com/i
 - [**Documentación Integración Continua**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/integracion-continua.md)
 - [**Documentación Contenedores-Microservicios**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/contenedores-microservicios.md)
 - [**Resultados ab**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/resultados-ab.md)
+- [**Documentación Prestaciones**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/prestaciones.md)
