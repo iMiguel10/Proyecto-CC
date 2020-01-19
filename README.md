@@ -135,6 +135,19 @@ Para la medición de las prestaciones se ha usado Taurus, con el fichero de conf
 Prestaciones: quick_test.yml
 ~~~
 
+#### Máquinas virtuales, provisionamiento y despliegue
+
+Para la creación de las máquinas virtuales, provisionamiento y despliegue de las mimas se han usado ficheros de ansibles y un fichero de fabric. De esta manera hemos podido automatizar estas tareas, además de poder replicar estas acciones.
+
+Para llevar a cabo estas tareas es necesario lo siguiente:
+
+**Provisionamiento:** `ansible-playbook [playbook]`  
+
+**Despliegue:** `fab [tarea] [parámetros]`
+* Tareas: `install, start, stop, update`
+
+**NOTA:** Es necesario estar en el directorio en el que se encuentran los ficheros, provision o despliegue.
+
 #### Autores
 
 - [**Miguel Jiménez Cazorla**](https://github.com/iMiguel10) - Desarrollador principal.
@@ -152,3 +165,5 @@ Este proyecto esta bajo la licencia LGPL v3 - Ver [LICENSE](https://github.com/i
 - [**Documentación Contenedores-Microservicios**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/contenedores-microservicios.md)
 - [**Resultados ab**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/resultados-ab.md)
 - [**Documentación Prestaciones**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/prestaciones.md)
+- [**Documentación Acceso a datos**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/acceso-datos.md)
+- [**Documentación Provisionamiento**](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/provisionamiento.md)
