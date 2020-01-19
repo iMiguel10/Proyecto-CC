@@ -1,0 +1,12 @@
+- name: Creación de la base de datos Postgresql
+  hosts: catalogo
+  become: yes
+  become_user: vagrant
+
+  tasks:
+    - name: Crear tabla entradas
+      postgresql_query:
+        db: db
+        login_password: "{{ lookup('env','BD_PASSWORD') }}"
+        login_user: vagrant
+        query: CREATE TABLE entradas (id  SERIAL PRIMARY KEY,evento VARCHAR(50),precio NUMERIC(5,2),propietario VARCHAR(100),descripcion TEXT);

@@ -1,0 +1,22 @@
+# Playbook para la realización de las tareas de la máquina del MS: Catalogo
+- name: Tareas de la máquina que alberga el MS-Catalogo
+  hosts: localhost
+  become_user: vagrant
+
+  tasks:
+
+  - name: Instalar Invoke
+    command: pip3 install invoke
+
+  - name: Instalar requeriments necesarios
+    command: pip3 install -r requirements-catalogo.txt
+    args:
+      chdir: Proyecto_CC/
+
+  - name: Ver requeriments
+    command: pip3 freeze
+
+  - name: Instalar requeriments necesarios
+    command: inv start -m catalogo
+    args:
+      chdir: Proyecto_CC/

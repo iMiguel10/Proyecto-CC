@@ -1,0 +1,7 @@
+postgresql_databases:
+  - name: db
+
+postgresql_users:
+  - name: vagrant
+    password: "{{ lookup('env','BD_PASSWORD') }}"
+    login_password: "{{ lookup('env','BD_PASSWORD') }}"

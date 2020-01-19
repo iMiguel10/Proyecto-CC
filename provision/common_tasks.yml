@@ -1,0 +1,32 @@
+# Playbook para la realización de las tareas comunes de todas las máquinas
+- name: Tareas comunes a todas las máquinas
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Actualizar sistema
+    command: apt update
+
+  - name: Instalar paquetes necesarios
+    apt:
+      pkg: ["git"]
+      state: present
+
+  - name: Instalar dependencias para instalar el lenguaje
+    apt:
+      pkg: software-properties-common
+
+  - name: Actualizar sistema
+    command: apt update
+
+  - name: Instalar Python3.6
+    apt:
+      pkg: ["python3.6","python3-pip"]
+      state: present
+
+  - name: Descargar fuentes desde GitHub
+    git:
+      repo: https://github.com/iMiguel10/Proyecto-CC.git
+      dest: ./Proyecto_CC
+      version: master

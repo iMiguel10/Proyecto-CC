@@ -1,0 +1,34 @@
+# Playbook para la creación de las máquinas virtuales que albergarán los microservicios
+- name: Creación de las instancias
+  hosts: localhost
+  vars:
+    service_account_email: "988662035384-compute@developer.gserviceaccount.com"
+    credentials_file: "key.json"
+    project_id: "proyecto-cc-260418"
+  tasks:
+    - name: Crear las instancias
+      gce:
+        instance_names: catalogo,generadorpdf,sender
+        zone: europe-west2-a
+        machine_type: n1-standard-1
+        image: ubuntu-minimal-1804-bionic-v20200108
+        state: present
+        service_account_email: "{{ service_account_email }}"
+        credentials_file: "{{ credentials_file }}"
+        project_id: "{{ project_id }}"
+      register: gce
+
+    - name: Esperar al SSH de las instancias
+      wait_for:
+        delay: 1
+        host: "{{ item.public_ip }}"
+        port: 22
+        state: started
+        timeout: 30
+      with_items: "{{ gce.instance_data }}"
+
+    - name: Guardar en el /etc/ansible/hosts las IPs de las máquinas creadas
+      lineinfile:
+        path: /etc/ansible/hosts
+        line: "[{{ item.name }}]\n{{ item.public_ip }}"
+      with_items: "{{ gce.instance_data }}"

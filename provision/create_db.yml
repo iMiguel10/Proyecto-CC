@@ -1,0 +1,8 @@
+- name: Creación de la base de datos Postgresql
+  hosts: catalogo
+  become: yes
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - role: geerlingguy.postgresql
