@@ -4,7 +4,7 @@
 Para el provisionamiento de máquinas virtuales se ha usado ansible, pero no solo para eso, si no que también ha servido para la creación de las mismas. Además se ha hecho uso de fabric para la realización de tareas en las máquinas ya desplegadas.
 
 ### Creación de máquinas virtuales
-En primer lugar es necesario crear las máquinas virtuales, se van a hacer uso de 3 máquinas virtuales, una para cada microservicio, para ello se ha hecho uso de este [playbook]():
+En primer lugar es necesario crear las máquinas virtuales, se van a hacer uso de 3 máquinas virtuales, una para cada microservicio, para ello se ha hecho uso de este [playbook](https://github.com/iMiguel10/Proyecto-CC/blob/master/provision/create_instances.yml):
 ```yaml
 
 # Playbook para la creación de las máquinas virtuales que albergarán los microservicios
@@ -100,7 +100,7 @@ Para la instancia que contendrá el microservicio del catálogo, será necesario
     - role: geerlingguy.postgresql
 
 ```
- En este playbook se ha usado la galaxia de ansible de manera que se han facilitado las tareas, ya que solo ha sido necesario la instalación y un fichero de varibles([main.yml]()), en el que hemos especificado, los valores de la base de datos y los usuarios, en nuestro caso una base de datos (bd) y un usuaro (vagrant).
+ En este playbook se ha usado la galaxia de ansible de manera que se han facilitado las tareas, ya que solo ha sido necesario la instalación y un fichero de varibles([main.yml](https://github.com/iMiguel10/Proyecto-CC/blob/master/provision/vars/main.yml)), en el que hemos especificado, los valores de la base de datos y los usuarios, en nuestro caso una base de datos (bd) y un usuaro (vagrant).
 
 A continuación vamos a ver el playbook en el que creamos la tabla con el modelo de datos. En el podemos ver una tarea en la que con una query en SQL creamos la tabla, en la base de datos y con el usuario anteriormente creados, con los campos necesarios.
 
@@ -182,6 +182,26 @@ def update(ctx):
 
 ```
 
+### Comprobar prestaciones
+Por último vamos a comprobar las prestaciones que nos presentan las máquinas, haciendo uso de Taurus como se hizo anteriormente. Para ello se ha utilizado el mismo fichero de configuración, pero cambiando el url al que se le hacen las peticiones.
+
+```yaml
+execution:
+- concurrency: 10
+  ramp-up: 10s
+  hold-for: 20s
+  scenario: quick-test
+
+scenarios:
+  quick-test:
+    requests:
+    - http://<ip>:<port>/
+```
+Estos son los resultados obtenidos:
+
+![Prestaciones](https://github.com/iMiguel10/Proyecto-CC/blob/master/doc/img/prestaciones-antigua.png)
+
+Los resultados obtenidos han sido bastante malos, por ello se ha creado una máquina con un número mayor de CPUs, pero los resultados no mejoran, incluso empeoran.
 
 ### Bibliografía:
 
